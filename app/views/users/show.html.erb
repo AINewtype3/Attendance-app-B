@@ -4,19 +4,19 @@
     <tr class="btn-users-show">
       <td>
         <%= link_to "⇦", user_path(date: @first_day.prev_month), class: "btn btn-info" %>
-        時間管理表
+        <%= l(@first_day, format: :middle) %>時間管理表
         <%= link_to "⇨", user_path(date: @first_day.next_month), class: "btn btn-info" %>
       </td>
       <td>指定勤務時間<%= format_basic_info(@user.work_time) %></td>
       <td>基本時間<%= format_basic_info(@user.basic_time) %></td>
-      <td>月初日</td>
+      <td>初日 <%= l(@first_day, format: :short) %></td>
     </tr>
 
     <tr>
       <td>所属 : <%= @user.department.present? ? @user.department : "未所属" %></td>
       <td>名前 : <%= @user.name %></td>
       <td>出勤日数</td>
-      <td>月末日</td>
+      <td>締め <%= l(@last_day, format: :short) %></td>
     </tr>
   </table>
 </div>
@@ -54,9 +54,13 @@
               <%= link_to "出社", user_attendance_path(@user, day), method: :patch, class: "btn btn-primary btn-attendance" %>
             <% end %>
           </td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td><%= l(day.finished_at, format: :hour) if day.finished_at.present? %></td>
+          <td><%= l(day.finished_at, format: :minutes) if day.finished_at.present? %></td>
+          <td>
+            <% if (Date.current == day.worked_on) && day.started_at.present? && day.finished_at.nil? %>
+              <%= link_to "退社", user_attendance_path(@user, day), method: :patch, class: "btn btn-primary btn-attendance" %>
+            <% end %>
+          </td>
           <td></td>
           <td></td>
         </tr>
