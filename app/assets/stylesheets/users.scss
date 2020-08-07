@@ -3,6 +3,13 @@
   text-align: center;
 }
 
+/* ユーザー情報下ボタン */
+
+.btn-users-show {
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
 /* ユーザー勤怠情報テーブル */
 
 #table-attendances {
@@ -42,7 +49,7 @@
   }  
 }
 
-/* 基本情報の更新ページ */
+/* 基本情報編集モーダルウインドウ */
 
 .label-basic-info {
   margin-top: 5px;

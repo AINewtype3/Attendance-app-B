@@ -50,6 +50,15 @@ class UsersController < ApplicationController
   end
 
   def update_basic_info
+    @members = User.all
+    @members.each do |member|
+      unless member.update_attributes(basic_info_params)
+        render :edit_basic_info
+      else
+        flash[:success] = "基本情報を更新しました。"
+      end
+    end
+    redirect_to @user
   end
   
   
