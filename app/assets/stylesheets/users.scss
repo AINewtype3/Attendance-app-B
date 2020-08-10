@@ -6,7 +6,6 @@
 /* ユーザー情報下ボタン */
 
 .btn-users-show {
-  display: inline-block;
   margin-top: -10px;
   margin-bottom: 10px;
 }
@@ -52,11 +51,18 @@
 
 /* ユーザー一覧ページ */
 
+.search-form {
+  float: right;
+}
+
+.text-form {
+  height: 30px;
+}
+
 #table-users {
   td {
     vertical-align: middle;
     text-align: left;
-    
   }  
 }
 

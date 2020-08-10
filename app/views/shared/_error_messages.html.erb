@@ -4,9 +4,9 @@
       入力エラーが<%= obj.errors.count %>件ありました。
     </div>
     <ul>
-    <% obj.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
+      <% obj.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
     </ul>
   </div>
 <% end %>
