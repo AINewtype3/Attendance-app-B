@@ -10,14 +10,6 @@
   margin-bottom: 10px;
 }
 
-.inline-block {
-  display: inline-block;
-  float: right;
-  margin-top: -10px;
-  margin-right: 10px;
-  margin-bottom: -10px;
-}
-
 /* ユーザー勤怠情報テーブル */
 
 #table-attendances {
@@ -51,12 +43,16 @@
 
 /* ユーザー一覧ページ */
 
-.search-form {
-  float: right;
+.text-label {
+  
 }
 
 .text-form {
   height: 30px;
+}
+
+.btn {
+  
 }
 
 #table-users {
@@ -66,7 +62,7 @@
   }  
 }
 
-/* 基本情報編集モーダルウインドウ */
+/* 基本情報編集画面 */
 
 .label-basic-info {
   margin-top: 5px;

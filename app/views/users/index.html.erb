@@ -1,15 +1,12 @@
 <% provide(:title, 'All Users') %>
 <h1>ユーザー一覧</h1>
 
-<div class="search-form">
-  <%= form_with(scope: :search, url: users_path, method: :get, local: true) do |f| %>
-    <div class="field">
-      <%= f.label "ユーザー名検索" %>
-      <%= f.text_field :name, class: "text-form"  %>
-      <%= f.submit "検索" ,class: "btn btn-sm btn-primary" %>
-    </div>
-  <% end %>
-</div>
+<%= form_with(url: users_path, method: :get, local: true) do |f| %>
+  <%= f.label "ユーザー名検索", class: "text-label" %>
+  <%= f.text_field :name, class: "text-form"  %>
+  <%= f.submit "検索" ,class: "btn btn-sm btn-primary" %>
+<% end %>
+
 
 <div class="col-md-10 col-md-offset-1">
   <%= will_paginate %>
