@@ -5,11 +5,19 @@ class Attendance < ApplicationRecord
   validates :note, length: { maximum: 50 }
   
   validate :finished_at_is_invalid_without_a_started_at
-  
+  validate :started_at_is_invalid_without_a_finished_at
   validate :started_at_than_finished_at_fast_if_invalid
 
   def finished_at_is_invalid_without_a_started_at
     errors.add(:started_at, "が必要です") if started_at.blank? && finished_at.present?
+  end
+  
+  def started_at_is_invalid_without_a_finished_at
+    if started_at.present? && finished_at.blank?
+      if worked_on != Date.current
+        errors.add(:finished_at, "が必要です")
+      end
+    end
   end
   
   def started_at_than_finished_at_fast_if_invalid
