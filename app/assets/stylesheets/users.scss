@@ -43,16 +43,18 @@
 
 /* ユーザー一覧ページ */
 
-.text-label {
-  
+.search-form {
+  margin-left   : 80%;
 }
 
-.text-form {
-  height: 30px;
+.search-field {
+  margin-left   : 80%;
 }
 
-.btn {
-  
+.button {
+  border-radius : 5%;
+  color         : #fff;
+  background    : #6666ff;
 }
 
 #table-users {
